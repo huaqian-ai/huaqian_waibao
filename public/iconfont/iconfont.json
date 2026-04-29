@@ -1,0 +1,135 @@
+{
+  "id": "5170181",
+  "name": "华谦",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "538866",
+      "name": "链接",
+      "font_class": "lianjie",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "1092129",
+      "name": "对话",
+      "font_class": "duihua",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "1347532",
+      "name": "合作模式",
+      "font_class": "hezuomoshi",
+      "unicode": "e661",
+      "unicode_decimal": 58977
+    },
+    {
+      "icon_id": "3025417",
+      "name": "快速部署",
+      "font_class": "kuaisubushu",
+      "unicode": "e672",
+      "unicode_decimal": 58994
+    },
+    {
+      "icon_id": "3865283",
+      "name": "增长",
+      "font_class": "zengchang",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "3886579",
+      "name": "解决方案",
+      "font_class": "jiejuefangan",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "4772822",
+      "name": "工作流—工作流管理",
+      "font_class": "gongzuoliugongzuoliuguanli",
+      "unicode": "e64b",
+      "unicode_decimal": 58955
+    },
+    {
+      "icon_id": "7366000",
+      "name": "业务",
+      "font_class": "yewu",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "7738005",
+      "name": "服务",
+      "font_class": "fuwu",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "12437192",
+      "name": "快速升级",
+      "font_class": "kuaisushengjix",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
+    },
+    {
+      "icon_id": "12582575",
+      "name": "闪电",
+      "font_class": "shandian",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "12634296",
+      "name": "1-4人工智能",
+      "font_class": "-rengongzhineng",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "13533420",
+      "name": "afs 数据风控",
+      "font_class": "afsshujufengkong",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    },
+    {
+      "icon_id": "22561966",
+      "name": "环保平台-工作流引擎",
+      "font_class": "huanbaopingtai-gongzuoliuyinqing",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "35684880",
+      "name": "成本优化",
+      "font_class": "chengbenyouhua",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "37699581",
+      "name": " 安全可控",
+      "font_class": "anquankekong",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "38105498",
+      "name": "福利",
+      "font_class": "fuli",
+      "unicode": "e6a5",
+      "unicode_decimal": 59045
+    },
+    {
+      "icon_id": "45118788",
+      "name": "团队效率提升",
+      "font_class": "tuanduixiaoshuaitisheng",
+      "unicode": "e67d",
+      "unicode_decimal": 59005
+    }
+  ]
+}

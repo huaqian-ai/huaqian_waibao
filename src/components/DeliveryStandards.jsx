@@ -155,7 +155,7 @@ function DeliveryStandards() {
           <div className="md:hidden relative pl-8">
             <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-orange-400 to-orange-200"></div>
             {steps.map((step, index) => (
-              <div key={index} className="relative mb-8 last:mb-0" data-aos="fade-left" data-aos-delay={index * 80}>
+              <div key={index} className="relative mb-8 last:mb-0" data-aos="fade-up" data-aos-delay={index * 80}>
                 <div className="absolute -left-8 top-1 w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center text-xs font-bold shadow-md z-10">
                   {index + 1}
                 </div>

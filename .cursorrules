@@ -1,0 +1,256 @@
+# Cursor Rules for huaqian-site
+# Tech Stack: React 18 + Vite + Tailwind CSS + Ant Design + Axios + AOS
+
+You are an expert React developer building landing pages and web applications.
+
+## Tech Stack
+- **Build Tool**: Vite 5
+- **Framework**: React 18 with functional components and hooks
+- **Styling**: Tailwind CSS 3 (utility classes first)
+- **UI Library**: Ant Design 5 (for complex components: Forms, Tables, Modals, Notifications)
+- **Icons**: @ant-design/icons
+- **Router**: React Router DOM 6
+- **HTTP**: Axios with interceptors
+- **Animations**: AOS (Animate On Scroll)
+
+---
+
+## Code Style
+
+### General Rules
+- Use **functional components** with hooks (no class components)
+- Use **ES6+** syntax: const/let, arrow functions, destructuring, spread
+- **Remove console.log** before committing (debug only)
+- Handle errors gracefully with try-catch or error boundaries
+- Write **concise, readable code** - minimize prose in comments
+
+### Naming Conventions
+| Type | Convention | Example |
+|------|------------|---------|
+| Components | PascalCase | `Navbar.jsx`, `Hero.jsx` |
+| Files (utils/hooks) | camelCase | `useAuth.js`, `apiClient.js` |
+| CSS/Tailwind classes | kebab-case | `bg-blue-500`, `text-center` |
+| Constants | UPPER_SNAKE | `API_BASE_URL` |
+
+### File Structure
+```
+src/
+├── components/     # Reusable UI components
+│   ├── Navbar.jsx
+│   ├── Hero.jsx
+│   ├── Footer.jsx
+│   └── ...
+├── pages/          # Page components (if multi-page)
+├── hooks/          # Custom React hooks
+├── utils/          # Helper functions
+├── App.jsx         # Root component
+├── main.jsx        # Entry point
+└── index.css      # Global styles + Tailwind
+```
+
+---
+
+## React Best Practices
+
+### Component Rules
+- Use `React.memo()` for expensive components that render often
+- Use `useCallback` for functions passed to child components
+- Use `useMemo` for expensive computations
+- Always handle **loading** and **error** states
+- Use **PropTypes** or TypeScript for prop validation
+- Keep components **focused and single responsibility**
+- Extract reusable logic into **custom hooks**
+
+### State Management
+- Use `useState` for simple local state
+- Use React Context for shared state across components
+- Avoid prop drilling - use Context or lift state appropriately
+
+### Performance
+- Lazy load components with `React.lazy()` and `Suspense`
+- Use `data-aos` attributes sparingly for scroll animations
+- Optimize images: WebP format, proper sizing, lazy loading
+
+---
+
+## Tailwind CSS Rules
+
+### Do's
+- Use utility classes directly in JSX
+- Use **responsive prefixes**: `sm:`, `md:`, `lg:`, `xl:`
+- Use **state prefixes**: `hover:`, `focus:`, `active:`, `disabled:`
+- Use Tailwind's dark mode via `dark:` variant
+- Use `@apply` sparingly - only for repeated patterns in custom CSS
+
+### Don'ts
+- ❌ Don't use inline styles (except dynamic values)
+- ❌ Don't create giant Tailwind class strings - break into manageable lines
+- ❌ Don't forget mobile-first responsive design
+
+### Common Patterns
+```jsx
+// Responsive layout
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+// Hover states
+<button className="bg-blue-500 hover:bg-blue-600 active:bg-blue-700">
+
+// Text truncation
+<p className="truncate">Long text that should be truncated</p>
+```
+
+---
+
+## Ant Design Integration
+
+### When to Use Ant Design
+✅ **Complex Forms** - use `<Form>`, `<Input>`, `<Select>`
+✅ **Data Tables** - use `<Table>` with sorting/pagination
+✅ **Modals** - use `<Modal>` for dialogs
+✅ **Notifications** - use `message.success()`, `notification.info()`
+✅ **Layouts** - use `<Layout>`, `<Space>`, `<Grid>`
+
+### When NOT to Use Ant Design
+❌ **Simple buttons** - use `<button>` with Tailwind
+❌ **Simple text/styling** - use plain HTML + Tailwind
+❌ **Hero sections** - build custom with Tailwind
+❌ **Landing page sections** - custom components work better
+
+### Ant Design Patterns
+```jsx
+import { message, notification } from 'antd';
+
+// Form submission handling
+const onFinish = (values) => {
+  // Handle form submission
+  message.success('操作成功！');
+};
+
+// Error handling
+notification.error({
+  message: '错误',
+  description: '发生了某些问题',
+});
+```
+
+---
+
+## API Calls (Axios)
+
+### Recommended Pattern
+```javascript
+// utils/apiClient.js
+import axios from 'axios';
+
+const apiClient = axios.create({
+  baseURL: import.meta.env.VITE_API_BASE_URL,
+  timeout: 10000,
+});
+
+// Request interceptor
+apiClient.interceptors.request.use(
+  (config) => {
+    // Add auth token if needed
+    const token = localStorage.getItem('token');
+    if (token) config.headers.Authorization = `Bearer ${token}`;
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
+
+// Response interceptor
+apiClient.interceptors.response.use(
+  (response) => response.data,
+  (error) => {
+    // Handle common errors
+    if (error.response?.status === 401) {
+      // Handle unauthorized
+    }
+    return Promise.reject(error);
+  }
+);
+
+export default apiClient;
+```
+
+### API Usage
+```javascript
+// In component or hook
+const fetchData = async () => {
+  try {
+    const data = await apiClient.get('/endpoint');
+    return data;
+  } catch (error) {
+    console.error('API Error:', error);
+  }
+};
+```
+
+---
+
+## Animations (AOS)
+
+### Recommended Animations
+```jsx
+// Simple fade up (most versatile)
+<div data-aos="fade-up">Content</div>
+
+// With delay for staggered effects
+<div data-aos="fade-up" data-aos-delay="100">Delayed</div>
+
+// Other good options
+// fade-down, fade-left, fade-right
+// zoom-in, zoom-out
+// flip-up, flip-down
+```
+
+### Don't Over-animate
+- Maximum **2-3 animations** per section
+- Keep animation duration **300-800ms**
+- Don't animate everything - focus on key elements
+
+---
+
+## Don'ts Summary
+
+| Don't | Alternative |
+|-------|-------------|
+| ❌ Inline styles | Use Tailwind classes |
+| ❌ Class components | Use functional + hooks |
+| ❌ Giant components | Split into smaller ones |
+| ❌ console.log in production | Remove or use error logging |
+| ❌ Over-animating | Use AOS sparingly |
+| ❌ Ant Design for everything | Use Tailwind for simple UI |
+| ❌ prop drilling | Use Context or state management |
+| ❌ any type | Use proper types or PropTypes |
+
+---
+
+## Vite-Specific Notes
+- Use `import.meta.env.VITE_*` for environment variables
+- Use `import()` for dynamic imports
+- Configure proxy in `vite.config.js` for API development
+
+---
+
+## Quick Reference
+
+### Tailwind + Ant Design Together
+```jsx
+<Form.Item className="mb-4">
+  <Input className="w-full md:w-64" />
+</Form.Item>
+```
+
+### Ant Design Theme Customization
+```jsx
+<ConfigProvider
+  theme={{
+    token: {
+      colorPrimary: '#1677ff',
+    },
+  }}
+>
+  <App />
+</ConfigProvider>
+```
